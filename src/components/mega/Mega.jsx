@@ -64,7 +64,8 @@ export class Mega extends React.Component {
           justifyContent: "center",
         }}
       >
-        <Text style={styles.fonteGrande}>Gerador de mega-sena</Text>
+        <Text style={styles.fonteGrande}>Gerador de números</Text>
+        <Text style={styles.fontePequena}>Quantidade de números:</Text>
         <TextInput
           keyboardType={"numeric"}
           style={styles.input}

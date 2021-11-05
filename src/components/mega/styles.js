@@ -3,6 +3,10 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   fonteGrande: {
     fontSize: 30,
+    fontWeight: "bold",
+  },
+  fontePequena: {
+    fontSize: 20,
   },
   input: {
     borderBottomWidth: 1,
