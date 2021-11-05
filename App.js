@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { Mega } from "./src/components/mega/Mega";
 
 export default function App() {
-  return <Mega></Mega>;
+  return (
+    <SafeAreaView style={styles.container}>
+      <Mega qtdDeNumeros={6}></Mega>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
