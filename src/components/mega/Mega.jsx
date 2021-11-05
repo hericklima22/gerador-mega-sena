@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Button, Pressable, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  Pressable,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import styles from "./styles";
 import MegaNumero from "../numero/Numero";
 
@@ -48,7 +55,15 @@ export class Mega extends React.Component {
 
   render() {
     return (
-      <>
+      <SafeAreaView
+        style={{
+          backgroundColor: "orange",
+          width: "100%",
+          height: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Text style={styles.fonteGrande}>Gerador de mega-sena</Text>
         <TextInput
           keyboardType={"numeric"}
@@ -56,6 +71,7 @@ export class Mega extends React.Component {
           placeholder="Qtd de Números"
           value={`${this.state.qtdDeNumeros}`}
           onChangeText={this.alterarQtdNumero}
+          maxLength={2}
         />
         <Pressable style={styles.botaoDeGerar} onPress={this.gerarNumerosV1}>
           <Text style={styles.btnText}>
@@ -73,7 +89,7 @@ export class Mega extends React.Component {
         >
           {this.exibirNumeros()}
         </View>
-      </>
+      </SafeAreaView>
     );
   }
 }

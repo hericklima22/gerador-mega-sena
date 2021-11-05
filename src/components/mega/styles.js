@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
+    fontSize: 30,
+    width: "10%",
+    textAlign: "center",
   },
 
   botaoDeGerar: {
