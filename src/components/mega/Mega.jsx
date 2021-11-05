@@ -17,11 +17,24 @@ export class Mega extends React.Component {
     return nums.includes(novo) ? this.gerarNumeroNaoContido(nums) : novo;
   };
 
-  gerarNumeros = () => {
+  gerarNumerosV1 = () => {
     const numeros = Array(this.state.qtdDeNumeros)
       .fill()
       .reduce((nums) => [...nums, this.gerarNumeroNaoContido(nums)], [])
       .sort((a, b) => a - b);
+    this.setState({ numeros });
+  };
+
+  gerarNumerosV2 = () => {
+    const { qtdDeNumeros } = this.state;
+    const numeros = [];
+
+    for (let i = 0; i < qtdDeNumeros; i++) {
+      numeros.push(this.gerarNumeroNaoContido(numeros));
+    }
+
+    numeros.sort((a, b) => a - b);
+
     this.setState({ numeros });
   };
 
@@ -36,7 +49,7 @@ export class Mega extends React.Component {
           value={`${this.state.qtdDeNumeros}`}
           onChangeText={this.alterarQtdNumero}
         />
-        <Button title="gerar" onPress={this.gerarNumeros} />
+        <Button title="gerar" onPress={this.gerarNumerosV2} />
         <Text>{this.state.numeros.join(",")}</Text>
       </>
     );
