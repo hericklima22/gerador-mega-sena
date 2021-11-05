@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, Pressable, Text, TextInput, View } from "react-native";
 import styles from "./styles";
 import MegaNumero from "../numero/Numero";
 
@@ -52,12 +52,16 @@ export class Mega extends React.Component {
         <Text style={styles.fonteGrande}>Gerador de mega-sena</Text>
         <TextInput
           keyboardType={"numeric"}
-          style={{ borderBottomWidth: 1 }}
+          style={styles.input}
           placeholder="Qtd de Números"
           value={`${this.state.qtdDeNumeros}`}
           onChangeText={this.alterarQtdNumero}
         />
-        <Button title="gerar" onPress={this.gerarNumerosV1} />
+        <Pressable style={styles.botaoDeGerar} onPress={this.gerarNumerosV1}>
+          <Text style={styles.btnText}>
+            Gerar {this.state.qtdDeNumeros} números
+          </Text>
+        </Pressable>
         <View
           style={{
             marginTop: 20,
